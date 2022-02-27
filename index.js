@@ -48,10 +48,10 @@ app.use("/api/users",userRoute);
 app.use("/api/posts",postRoute);
 app.use("/api/category",categoryRoute);
 
-app.use(express.static(path.join(__dirname, "/<my-blog>/build")));
+app.use(express.static(path.join(__dirname, "/my-blog/build")));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/<my-blog>/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/my-blog/build', 'index.html'));
 });
 
 
