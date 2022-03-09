@@ -23,13 +23,14 @@ export default function Home() {
     }, [search])
 
     return (
-        <div> 
+        <> 
          <Header/> 
-         <div className="home">
+        <div className="home">
            <Posts posts={posts} />  
-           <Sidebar/>
+          
         </div>
-        </div>
+        <Sidebar/>
+        </>
     )
 }
 
