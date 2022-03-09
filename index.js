@@ -48,17 +48,14 @@ app.use("/api/users",userRoute);
 app.use("/api/posts",postRoute);
 app.use("/api/category",categoryRoute);
 
-if(process.env.NODE_ENV == 'production')
+app.use(express.static(path.join(__dirname, "/my-blog/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/my-blog/build', 'index.html'));
+});
+
+
+app.listen(process.env.PORT || 5000 ,() =>
 {
-    app.use('/' , express.static('my-blog/build'))
-
-    app.get("*", (req, res) => {
-
-        res.sendFile(path.resolve(__dirname, 'my-blog/build/index.html'));
-      
-    });
-}
-
-const port = process.env.PORT || 5000
-
-app.listen(port, () => console.log("Backend is running")) 
+    console.log("backend is running")
+}) 

@@ -3,18 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines" : {
-    "node": "14.17.0",
-    "npm" : "6.14.13"
-},
- 
   "scripts": {
-    "client-install": "npm install --prefix my-blog",
-    "server": "nodemon index.js",
-    "client": "npm start --prefix my-blog",
-    "dev": "concurrently \"npm run index\" \"npm run my-blog\"",
     "start": "node index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix my-blog && npm run build --prefix my-blog"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Ajay",
   "license": "ISC",
